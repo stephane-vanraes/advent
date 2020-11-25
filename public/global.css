@@ -1,0 +1,28 @@
+:root {
+	--primary: #;
+	--secondary: #;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	color: inherit;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #208040;
+	color: #f08000;
+	height: 100%;
+}
+
+body {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+}
