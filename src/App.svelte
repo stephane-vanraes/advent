@@ -1,5 +1,5 @@
 <script>
-	import { scale } from 'svelte/transition'
+	import { fade, scale } from 'svelte/transition'
 	import { items } from './store'
 	import { clickOutside } from './clickOutside'
 	import { openDoor } from './openDoor'
@@ -8,7 +8,7 @@
 	let innerWidth = 0
 	let modalImage
 
-	$: dimension = Math.min(innerHeight - 48, innerWidth - 48)
+	$: dimension = Math.min(innerHeight - 12, innerWidth - 12)
 </script>
 
 <svelte:window bind:innerHeight bind:innerWidth></svelte:window>
@@ -34,7 +34,10 @@
 </main>
 
 {#if modalImage}
-	<div class="modal" use:clickOutside on:clickOutside={() => modalImage = false}>
+	<div in:fade class="modal" 
+		 use:clickOutside 
+		 on:clickOutside={() => modalImage = false}
+		 style="--dimension: {dimension}px">
 		<img src={modalImage} alt=""> 
 	</div>
 {/if}
@@ -80,11 +83,11 @@
 
 	.modal {
 		background: white;
-		height: 80vh;
+		height: var(--dimension);
 		left: 50%;
 		position: fixed;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		width: 80vw;
+		width: var(--dimension);
 	}
 </style>

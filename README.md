@@ -1,10 +1,10 @@
 # Advent Calendar
 
-Clone ❄️, degit 🎁, steal ⛄ and spread the joy :) 🌈
+Clone ❄️, degit 🎁 or steal ⛄ and spread the joy 🌈
 
 ## How to:
 
-Add images to `/public/images`
+Add images to `/docs/images`
 Add entries for each day in `/advent.json`
 
 Install dependencies `npm install`
@@ -25,3 +25,12 @@ If you _absolutely_ want to change that modify lines 14 and 15 in `/src/store.js
 The _"app"_ will keep track of which boxes you already opened in your localStorage as a simple array, that is read when opening it (or lacking it simply filled up a bunch of _falses_). 🍒
 
 The final image (because 25 makes a better grid, has to be always called `xmas.png`) or you change it yourself on line 33 in `/src/App.svelte`. 🍿
+
+## Serving the page
+
+The default configuration puts everything in the folder `/docs` which is somehow one of the default paths to deploy Github Pages, so that can be easily done there.
+If you deploy to other services, remember to change your configuration to point to `/docs` or alternatively change the path in `rollup.config.js`.
+
+## Happy Holidays
+
+[@StephaneVanraes](http://www.twitter.com/StephaneVanraes)

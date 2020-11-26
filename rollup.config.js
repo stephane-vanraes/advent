@@ -35,7 +35,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'docs/build/bundle.js'
 	},
 	plugins: [
 		json(),
@@ -51,7 +51,7 @@ export default {
 		}),
 		commonjs(),
 		!production && serve(),
-		!production && livereload('public'),
+		!production && livereload('docs'),
 		production && terser()
 	],
 	watch: {
