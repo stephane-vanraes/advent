@@ -1,6 +1,6 @@
 # Advent Calendar
 
-Clone ❄️, degit 🎁 or steal ⛄ and spread the joy 🌈
+Clone ❄️, fork 🎁 or steal ⛄ and spread the joy 🌈
 
 ## How to:
 

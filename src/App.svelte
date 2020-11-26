@@ -30,7 +30,7 @@
 			{/if}
 		</div>
 	{/each}
-	<img src="/images/xmas.png" alt="" />
+	<img src="./images/xmas.png" alt="" />
 </main>
 
 {#if modalImage}
