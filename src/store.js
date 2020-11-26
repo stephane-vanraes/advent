@@ -11,13 +11,14 @@ const initial = images.map((image, i) => ({
 }))
 
 const today = (new Date()).getDate()
+
 const checkDate = number => number <= today
 
 export const items = (() => {
     const { subscribe, update } = writable(initial)
 
     const open = i => {
-        if (checkDate(i)) {
+        if (checkDate(i+1)) { // +1 because dates start from 1
             update(old => old.map((item, idx) => idx === i ? {...item, open: true} : item))
         }
     }
