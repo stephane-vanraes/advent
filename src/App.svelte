@@ -14,8 +14,8 @@
 <svelte:window bind:innerHeight bind:innerWidth></svelte:window>
 
 <main style="--dimension: {dimension}px" >
-	{#each $items as item, i}
-		<div on:click={() => items.open(i)}>
+	{#each $items as item}
+		<div on:click={() => items.open(item.id)}>
 			{#if item.open}
 				<img 
 					in:scale={{ delay: 500, duration: 1000 }} 
@@ -25,12 +25,11 @@
 				>
 			{:else}
 				<div class="door" out:openDoor>
-					<span>{i + 1}</span>
+					<span>{item.id + 1}</span>
 				</div>
 			{/if}
 		</div>
 	{/each}
-	<img src="./images/xmas.png" alt="" />
 </main>
 
 {#if modalImage}

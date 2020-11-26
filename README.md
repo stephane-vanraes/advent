@@ -4,8 +4,10 @@ Clone ❄️, fork 🎁 or steal ⛄ and spread the joy 🌈
 
 ## How to:
 
-Add images to `/docs/images` (it works best with square images, because all the boxes are square)
-Add entries for each day in `/advent.json`
+Add images to `/docs/images` (it works best with square images, because all the boxes are square).
+Add entries for each day in `/advent.json`.
+
+The final image (because 25 makes a better grid, will always be shown and is considered to be 'open' at all times. 🍿
 
 Install dependencies `npm install`
 Check it out `npm run dev`
@@ -23,8 +25,6 @@ It checks the date by comparing it to the day of the month, that's me being lazy
 If you _absolutely_ want to change that modify lines 14 and 15 in `/src/store.js` 🥨
 
 The _"app"_ will keep track of which boxes you already opened in your localStorage as a simple array, that is read when opening it (or lacking it simply filled up a bunch of _falses_). 🍒
-
-The final image (because 25 makes a better grid, has to be always called `xmas.png`) or you change it yourself on line 33 in `/src/App.svelte`. 🍿
 
 You can get a closer of each image by clicking on it.
 

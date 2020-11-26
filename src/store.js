@@ -1,14 +1,18 @@
 import { writable } from 'svelte/store'
+import shuffle from './shuffle'
 import images from '../advent.json'
 
 const states = window.localStorage.xmas 
     ? JSON.parse(window.localStorage.xmas)
-    : Array(24).fill(false)
+    : Array(25).fill(false)
 
-const initial = images.map((image, i) => ({
+states[24] = true
+
+const initial = shuffle(images.map((image, i) => ({
+    id: i,
     image,
     open: states[i]
-}))
+})))
 
 const today = (new Date()).getDate()
 
@@ -17,14 +21,14 @@ const checkDate = number => number <= today
 export const items = (() => {
     const { subscribe, update } = writable(initial)
 
-    const open = i => {
-        if (checkDate(i+1)) { // +1 because dates start from 1
-            update(old => old.map((item, idx) => idx === i ? {...item, open: true} : item))
+    const open = id => {
+        if (checkDate(id+1)) { // +1 because dates start from 1
+            update(old => old.map(item => item.id === id ? {...item, open: true} : item))
         }
     }
 
     subscribe(v => {
-        const states = v.map(i => i.open)
+        const states = [...v].sort((a, b) => a.id < b.id ? -1 : 1).map(i => i.open)
         window.localStorage.xmas = JSON.stringify(states)
     })
 
