@@ -33,6 +33,8 @@ You can get a closer of each image by clicking on it.
 The default configuration puts everything in the folder `/docs` which is somehow one of the default paths to deploy Github Pages, so that can be easily done there.
 If you deploy to other services, remember to change your configuration to point to `/docs` or alternatively change the path in `rollup.config.js`.
 
+## About the pictures
+
 ## Happy Holidays
 
 [@StephaneVanraes](http://www.twitter.com/StephaneVanraes)

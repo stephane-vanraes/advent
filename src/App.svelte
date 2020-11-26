@@ -1,46 +1,36 @@
 <script>
-	import { fade, scale } from 'svelte/transition'
+	import { fade } from 'svelte/transition'
 	import { items } from './store'
-	import { clickOutside } from './clickOutside'
-	import { openDoor } from './openDoor'
+	import Item from './components/Item.svelte'
 
 	let innerHeight = 0
 	let innerWidth = 0
-	let modalImage
+	let popup
 
 	$: dimension = Math.min(innerHeight - 12, innerWidth - 12)
+
+	const openPopup = ev => popup = ev.detail
+	const closePopup = () => popup = false
+	const handleKey = ev => {
+		if (popup && ev.key === 'Escape') {
+			closePopup()
+		} 
+	}
 </script>
 
-<svelte:window bind:innerHeight bind:innerWidth></svelte:window>
+<svelte:window bind:innerHeight bind:innerWidth on:keyup={handleKey}></svelte:window>
 
 <main style="--dimension: {dimension}px" >
 	{#each $items as item}
-		<div on:click={() => items.open(item.id)}>
-			{#if item.open}
-				<img 
-					in:scale={{ delay: 500, duration: 1000 }} 
-					src={item.image} 
-					alt=""
-					on:click={() => modalImage = item.image}
-				>
-			{:else}
-				<div class="door" out:openDoor>
-					<span>{item.id + 1}</span>
-				</div>
-			{/if}
-		</div>
+		<Item {...item} on:click={openPopup} />
 	{/each}
-</main>
 
-{#if modalImage}
-	<div in:fade class="modal" 
-		 use:clickOutside 
-		 on:click={() => modalImage = false}
-		 on:clickOutside={() => modalImage = false}
-		 style="--dimension: {dimension}px">
-		<img src={modalImage} alt=""> 
-	</div>
-{/if}
+	{#if popup}
+		<div on:click={closePopup}>
+			<img src={popup} alt="0" in:fade >
+		</div>
+	{/if}
+</main>
 
 <style>
 	main {
@@ -53,41 +43,19 @@
 	}
 
 	div {
-		cursor: pointer;
-		flex: 0 0 calc(20% - .25em);
-		height: calc(20% - .25em);
-		position: relative;
-	}
-
-	div > img {
-		height: 100%;
-		width: 100%;
+		align-items: center;
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100vw;
 	}
 
 	img {
-		flex: 0 0 20%;
-		height: 20%;
-		object-fit: scale-down;
-	}
-	.door {
-		align-items: center;
-		background-color: white;
-		display: flex;
-		justify-content: center;
-		flex: 1 0;
-		font-size: 5vw;
-		height: 100%;
-		position: absolute;
-		width: 100%;
-	}
-
-	.modal {
 		background: white;
 		height: var(--dimension);
-		left: 50%;
-		position: fixed;
-		top: 50%;
-		transform: translate(-50%, -50%);
 		width: var(--dimension);
 	}
 </style>

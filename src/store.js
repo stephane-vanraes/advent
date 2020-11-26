@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import shuffle from './shuffle'
+import shuffle from './utils/shuffle'
 import images from '../advent.json'
 
 const states = window.localStorage.xmas 

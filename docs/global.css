@@ -1,5 +1,5 @@
 :root {
-	--primary: #;
+	--primary: #BB2528;
 	--secondary: #;
 }
 
@@ -15,8 +15,12 @@
 }
 
 html {
-	background: #208040;
-	color: #f08000;
+	background: white;
+	background-image: url(./images/background.png);
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: 25vw 25vw;
+	color: white;
 	height: 100%;
 }
 
