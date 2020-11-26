@@ -26,6 +26,8 @@ The _"app"_ will keep track of which boxes you already opened in your localStora
 
 The final image (because 25 makes a better grid, has to be always called `xmas.png`) or you change it yourself on line 33 in `/src/App.svelte`. 🍿
 
+You can get a closer of each image by clicking on it.
+
 ## Serving the page
 
 The default configuration puts everything in the folder `/docs` which is somehow one of the default paths to deploy Github Pages, so that can be easily done there.

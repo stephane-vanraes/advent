@@ -36,6 +36,7 @@
 {#if modalImage}
 	<div in:fade class="modal" 
 		 use:clickOutside 
+		 on:click={() => modalImage = false}
 		 on:clickOutside={() => modalImage = false}
 		 style="--dimension: {dimension}px">
 		<img src={modalImage} alt=""> 
