@@ -4,7 +4,7 @@ Clone ❄️, degit 🎁 or steal ⛄ and spread the joy 🌈
 
 ## How to:
 
-Add images to `/docs/images`
+Add images to `/docs/images` (it works best with square images, because all the boxes are square)
 Add entries for each day in `/advent.json`
 
 Install dependencies `npm install`
